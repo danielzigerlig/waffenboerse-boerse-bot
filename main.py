@@ -145,6 +145,6 @@ async def poll():
             print(traceback.format_exc())  # zeigt die genaue Zeile
 
 
-    await asyncio.sleep(POLL_INTERVAL)
+        await asyncio.sleep(POLL_INTERVAL)
 
 asyncio.run(poll())
