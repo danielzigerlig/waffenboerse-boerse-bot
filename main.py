@@ -3,6 +3,7 @@ import asyncio
 import json
 import os
 import requests
+import traceback
 from bs4 import BeautifulSoup
 from telegram import Bot
 
@@ -141,7 +142,9 @@ async def poll():
 
         except Exception as e:
             print(f"❌ Fehler: {e}")
+            print(traceback.format_exc())  # zeigt die genaue Zeile
 
-        await asyncio.sleep(POLL_INTERVAL)
+
+    await asyncio.sleep(POLL_INTERVAL)
 
 asyncio.run(poll())
