@@ -75,19 +75,30 @@ async def post_product(bot: Bot, product: dict):
         f"💰 {product['price']}\n"
         f"🔗 [Zum Inserat]({product['link']})"
     )
-    if product["image"]:
-        await bot.send_photo(
-            chat_id=CHANNEL_ID,
-            photo=product["image"],
-            caption=caption,
-            parse_mode="Markdown"
-        )
-    else:
+
+    headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"}
+
+    try:
+        if product["image"]:
+            img_response = requests.get(product["image"], headers=headers, timeout=10)
+            img_response.raise_for_status()
+
+            await bot.send_photo(
+                chat_id=CHANNEL_ID,
+                photo=img_response.content,  # Bild als Bytes senden
+                caption=caption,
+                parse_mode="Markdown"
+            )
+        else:
+            raise Exception("Kein Bild")
+    except Exception:
+        # Fallback: nur Text senden
         await bot.send_message(
             chat_id=CHANNEL_ID,
             text=caption,
             parse_mode="Markdown"
         )
+
 
 async def poll():
     bot  = Bot(token=BOT_TOKEN)
