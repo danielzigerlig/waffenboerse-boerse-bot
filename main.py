@@ -14,7 +14,7 @@ BASE_URL       = "https://www.waffenboerse.ch"
 URL            = "https://www.waffenboerse.ch/de/occasionen/gebrauchtwaffen/faustfeuerwaffen/"
 SEEN_FILE      = "seen_products.json"
 POLL_INTERVAL = 3600  # Sekunden
-FIRST_RUN_POST = 10  # Beim ersten Start: diese Anzahl posten
+FIRST_RUN_POST = 0  # Beim ersten Start: diese Anzahl posten
 # ───────────────────────────────────────────────────────────
 
 def load_seen() -> set:
