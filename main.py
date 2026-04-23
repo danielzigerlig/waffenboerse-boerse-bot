@@ -13,7 +13,7 @@ CHANNEL_ID = int(os.environ.get("CHANNEL_ID"))
 BASE_URL       = "https://www.waffenboerse.ch"
 URL            = "https://www.waffenboerse.ch/de/occasionen/gebrauchtwaffen/faustfeuerwaffen/"
 SEEN_FILE      = "seen_products.json"
-POLL_INTERVAL = 60  # Sekunden
+POLL_INTERVAL = 3600  # Sekunden
 FIRST_RUN_POST = 10  # Beim ersten Start: diese Anzahl posten
 # ───────────────────────────────────────────────────────────
 
@@ -143,7 +143,6 @@ async def poll():
         except Exception as e:
             print(f"❌ Fehler: {e}")
             print(traceback.format_exc())  # zeigt die genaue Zeile
-
 
         await asyncio.sleep(POLL_INTERVAL)
 
