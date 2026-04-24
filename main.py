@@ -13,7 +13,7 @@ CHANNEL_ID = int(os.environ.get("CHANNEL_ID"))
 BASE_URL       = "https://www.waffenboerse.ch"
 URL            = "https://www.waffenboerse.ch/de/occasionen/gebrauchtwaffen/faustfeuerwaffen/"
 SEEN_FILE      = "seen_products.json"
-POLL_INTERVAL = 3600  # Sekunden
+POLL_INTERVAL = 1800  # Sekunden
 FIRST_RUN_POST = 0  # Beim ersten Start: diese Anzahl posten
 # ───────────────────────────────────────────────────────────
 
